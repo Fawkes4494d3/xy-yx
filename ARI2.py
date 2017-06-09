@@ -1,3 +1,4 @@
+#Written by Soumava Pal, and this code used by anyone else should be acknowledged accordingly
 #!/usr/bin/env python
 #ARI with k means taking 2k centers
 import random
