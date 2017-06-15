@@ -2,6 +2,8 @@
 #weighted k means
 #code written by Soumava Pal
 import random
+import matplotlib.pyplot as plt
+import Tkinter
 def d(x,y):
 	return (x-y)**2
 def P(U,Z,W,X,k,n,m,b):
@@ -129,6 +131,14 @@ if ask=='r':
 			vertices[i]=vertices[i][:-1]
 	m=len(vertices[0])
 	f.close()
+	if m==2:
+		Abscissa=[vertices[i][0] for i in range(n)]
+		Ordinate=[vertices[i][1] for i in range(n)]
+		print Abscissa
+		print Ordinate
+		plt.plot(Abscissa,Ordinate,'ro')
+		plt.axis([-1,1.5,-5,45])
+		plt.show()
 else:
 	n=int(raw_input('Enter the number of data points:'))
 	m=int(raw_input('Enter the number of features:'))
