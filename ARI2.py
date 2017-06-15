@@ -26,13 +26,13 @@ if ask=='r':
 	n=len(vertices)
 	member=[0 for i in range(n)]
 	if ',' in vertices[0]: #assuming that the delimiter is either a comma...
-		for i in range(n-1):
+		for i in range(n):
 			vertices[i]=vertices[i][:-1] #removing the \n character
 			vertices[i]=map(float,vertices[i].split(','))
 			member[i]=int(vertices[i].pop())
 			vertices[i]=vertices[i][:-1]
 	elif ' ' in vertices[0]: # ...or a space
-		for i in range(n-1):
+		for i in range(n):
 			vertices[i]=vertices[i][:-1] #removing the \n character
 			vertices[i]=map(float,vertices[i].split())
 			member[i]=int(vertices[i].pop())
