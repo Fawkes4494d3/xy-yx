@@ -14,8 +14,6 @@ def sum(x,y): #element wise sum of two arrays
 	return z
 #main
 ask=raw_input('Type r to read files or inp to input your own data:')
-k=int(raw_input('Enter the number of clusters you want to make:'))
-tol=float(raw_input('Enter the tolerance level:'))
 if ask=='r':
 	filename=raw_input('Enter the name of the file you want to read:')
 	f=open(filename,'r')
@@ -49,6 +47,8 @@ else:
 		M=map(float,raw_input().split())
 		vertices.append(M)
 mean,sd=0.0,0.0
+k=int(raw_input('Enter the number of clusters you want to make:'))
+tol=float(raw_input('Enter the tolerance level:'))
 N=int(raw_input('How many times do you want to run the clustering program? '))
 for MJ in range(N):
 	cluster_size=[0 for i in range(2*k)]
