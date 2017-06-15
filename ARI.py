@@ -30,15 +30,11 @@ if ask=='r':
 			vertices[i]=vertices[i][:-1] #removing the \n character
 			vertices[i]=map(float,vertices[i].split(','))
 			member[i]=int(vertices[i].pop())
-			vertices[i]=vertices[i][:-1]
 	elif ' ' in vertices[0]: # ...or a space
 		for i in range(n-1):
 			vertices[i]=vertices[i][:-1] #removing the \n character
 			vertices[i]=map(float,vertices[i].split())
 			member[i]=int(vertices[i].pop())
-			vertices[i]=vertices[i][:-1]
-	vertices.pop(n-1) #removing the EOF character
-	n-=1
 	d=len(vertices[0])
 	f.close()
 else:
