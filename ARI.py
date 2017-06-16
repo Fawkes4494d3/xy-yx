@@ -65,7 +65,7 @@ for MJ in range(N):
 		numbers[membership[i]]+=1
 	for i in range(k):
 		for j in range(d):
-			centers[i][j]/=float(numbers[i])
+			if float(numbers[i])!=0: centers[i][j]/=float(numbers[i])
 	while max([dist(compare[i],centers[i]) for i in range(k)])<tol: #repeating iteration till the error is less than tolerance level
 		distances=[]
 		for i in range(n):
@@ -82,7 +82,7 @@ for MJ in range(N):
 			numbers[membership[i]]+=1
 		for i in range(k):
 			for j in range(d):
-				centers[i][j]/=float(numbers[i])
+				if float(numbers[i])!=0: centers[i][j]/=float(numbers[i])
 	contingency=[[0 for i in range(num)] for j in range(k)]
 	for i in range(n):
 			contingency[membership[i]][member[i]-1]+=1
