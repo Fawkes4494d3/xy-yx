@@ -51,7 +51,8 @@ def solving2(U,X,W,Z,k,n,m,b,t):
 	for l in range(k):
 		for j in range(m):
 			for i in range(n):
-				Z1[l][j]+=(U1[i][l]*X[i][j])/float(numbers[l])
+				if (numbers[l]!=0):
+					Z1[l][j]+=(U1[i][l]*X[i][j])/float(numbers[l])
 	if (P(U1,Z1,W1,X,k,n,m,b)==P(U1,Z,W1,X,k,n,m,b) and t>=50):
 		return U1
 	else:
