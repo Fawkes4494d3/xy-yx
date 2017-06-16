@@ -125,7 +125,7 @@ else:
 	for i in range(n):
 		M=map(float,raw_input().split())
 		vertices.append(M)
-mean,sd=0.0
+mean,sd=0.0,0.0
 k=int(raw_input('Enter the number of clusters:'))
 N=int(raw_input('Enter the number of times you want to run:'))
 beta=float(raw_input('Enter the power to which weights should be raised:'))
@@ -137,8 +137,25 @@ for MJ in range(N):
 	h=sum(weights)
 	for i in range(m):
 		weights[i]/=h
-	for i in range(k):
-		centers[i]=vertices[centers[i]]
+	h=random.sample(range(n),1)
+	centers=[vertices[h[0]]]
+	while (len(centers)!=k):
+		distances=[]
+		for i in range(n):
+			mini=dist(vertices[i],centers[0],weights,beta)
+			for j in range(len(centers)):
+				if dist(vertices[i],centers[j],weights,beta)<mini:
+					mini=dist(vertices[i],centers[j],weights,beta)
+			distances.append(mini)
+		for i in range(1,n):
+			distances[i]+=distances[i-1]
+		for i in range(n):
+			distances[i]/=float(distances[n-1])
+		p=random.random()
+		for i in range(n):
+			if (p>=distances[i] and p<=distances[i+1]):
+				centers.append(vertices[i])
+				break
 	distances=[]
 	for i in range(n):
 		M=[]
